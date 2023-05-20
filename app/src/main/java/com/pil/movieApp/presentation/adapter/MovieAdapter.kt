@@ -1,4 +1,4 @@
-package com.pil.movieApp.adapter
+package com.pil.movieApp.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.View

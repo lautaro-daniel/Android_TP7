@@ -1,4 +1,4 @@
-package com.pil.movieApp.activity
+package com.pil.movieApp.presentation.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
-import com.pil.movieApp.adapter.MovieAdapter
+import com.pil.movieApp.presentation.adapter.MovieAdapter
 import com.pil.movieApp.database.MovieDataBaseImpl
 import com.pil.movieApp.database.MovieRoomDataBase
 import com.pil.movieApp.fragment.ErrorDialogFragment

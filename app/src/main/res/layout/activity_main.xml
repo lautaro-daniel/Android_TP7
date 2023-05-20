@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="@dimen/container_margin"
-    tools:context="com.pil.movieApp.activity.MainActivity"
+    tools:context="com.pil.movieApp.presentation.activity.MainActivity"
     android:background="@drawable/custom_background"
     >
 

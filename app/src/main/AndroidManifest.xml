@@ -15,7 +15,7 @@
         android:theme="@style/Theme.Retrofitroom"
         tools:targetApi="31" >
         <activity
-            android:name="com.pil.movieApp.activity.MainActivity"
+            android:name="com.pil.movieApp.presentation.activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.pil.movieApp.activity.MovieActivity"
+            android:name="com.pil.movieApp.presentation.activity.MovieActivity"
             android:exported="true"
             tools:ignore="Instantiatable">
         </activity>
