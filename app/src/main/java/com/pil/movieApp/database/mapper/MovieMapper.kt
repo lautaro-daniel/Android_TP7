@@ -1,6 +1,6 @@
 package com.pil.movieApp.database.mapper
 
-import com.pil.movieApp.database.entity.MovieEntity
+import com.pil.movieApp.data.entity.MovieEntity
 import com.pil.movieApp.service.model.Movie
 
 fun Movie.mapToDataBaseExercise(): MovieEntity =

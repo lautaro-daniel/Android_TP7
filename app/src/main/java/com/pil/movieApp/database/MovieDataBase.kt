@@ -1,6 +1,6 @@
 package com.pil.movieApp.database
 
-import com.pil.movieApp.database.dao.MovieDao
+import com.pil.movieApp.data.database.MovieDao
 import com.pil.movieApp.database.mapper.mapToDataBaseExercise
 import com.pil.movieApp.database.mapper.mapToLocalExercise
 import com.pil.movieApp.service.model.Movie

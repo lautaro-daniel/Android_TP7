@@ -1,4 +1,4 @@
-package com.pil.movieApp.service
+package com.pil.movieApp.data.service
 
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient

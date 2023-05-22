@@ -4,28 +4,21 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import com.pil.movieApp.presentation.adapter.MovieAdapter
-import com.pil.movieApp.database.MovieDataBaseImpl
 import com.pil.movieApp.database.MovieRoomDataBase
 import com.pil.movieApp.domain.util.fragment.ErrorDialogFragment
-import com.pil.movieApp.mvvm.contract.MainContract
-import com.pil.movieApp.mvvm.model.MainModel
 import com.pil.movieApp.presentation.mvvm.viewmodel.MoviesViewModel
-import com.pil.movieApp.mvvm.viewmodel.factory.ViewModelFactory
-import com.pil.movieApp.service.MovieClient
-import com.pil.movieApp.service.MovieRequestGenerator
-import com.pil.movieApp.service.MovieServiceImpl
 import com.pil.retrofit_room.R
 import com.pil.retrofit_room.databinding.ActivityMainBinding
+import org.koin.android.ext.android.inject
 
 class MovieActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var viewModel: MainContract.ViewModel
+    private val viewModel: MoviesViewModel by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,18 +37,7 @@ class MovieActivity : AppCompatActivity() {
                 .build()
         }
 
-        viewModel = ViewModelProvider(
-            this,
-            ViewModelFactory(
-                arrayOf(
-                    MainModel(
-                        MovieServiceImpl(MovieRequestGenerator.createService(MovieClient::class.java)),
-                        MovieDataBaseImpl(dataBase.moviesDao()),
-                    ),
-                ),
-            ),
-        )[MoviesViewModel::class.java]
-
+        viewModel.callService()
         viewModel.getValue().observe(this) { updateUI(it) }
     }
 

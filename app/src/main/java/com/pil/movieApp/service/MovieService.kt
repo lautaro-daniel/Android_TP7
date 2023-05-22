@@ -1,5 +1,6 @@
 package com.pil.movieApp.service
 
+import com.pil.movieApp.data.service.api.MovieClient
 import com.pil.movieApp.service.model.MovieList
 import com.pil.movieApp.domain.util.CoroutineResult
 

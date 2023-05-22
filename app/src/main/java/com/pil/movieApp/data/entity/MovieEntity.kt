@@ -1,4 +1,4 @@
-package com.pil.movieApp.database.entity
+package com.pil.movieApp.data.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

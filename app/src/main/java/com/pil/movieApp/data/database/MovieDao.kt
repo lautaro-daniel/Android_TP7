@@ -1,10 +1,10 @@
-package com.pil.movieApp.database.dao
+package com.pil.movieApp.data.database
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.pil.movieApp.database.entity.MovieEntity
+import com.pil.movieApp.data.entity.MovieEntity
 
 @Dao
 interface MovieDao {

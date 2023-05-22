@@ -6,20 +6,19 @@ import com.pil.movieApp.domain.service.MovieService
 import com.pil.movieApp.domain.util.CoroutineResult
 
 interface GetMovieUseCase{
-    operator fun invoke(movieId:String): CoroutineResult<List<Movie>>
+    suspend operator fun invoke(): CoroutineResult<List<Movie>>
 }
-
 class GetMoviesUserCaseImpl(
     private val movieService:MovieService,
     private val db: MovieDataBase
 ): GetMovieUseCase{
-    override operator fun invoke(title:String): CoroutineResult<List<Movie>> {
-        return when (val serviceResult = movieService.getMovies(title)){
+    override suspend operator fun invoke(): CoroutineResult<List<Movie>> {
+        return when (val serviceResult = movieService.getMovies()){
             is CoroutineResult.Success -> {
                 db.insertMovies(serviceResult.data)
                 db.getAllMovies()
             }
-            is CoroutineResult.Failure{
+            is CoroutineResult.Failure -> {
                 db.getAllMovies()
             }
         }
