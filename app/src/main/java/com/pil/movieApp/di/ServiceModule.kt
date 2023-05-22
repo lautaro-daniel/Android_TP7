@@ -1,7 +1,7 @@
 package com.pil.movieApp.di
 
+import com.pil.movieApp.data.service.MovieServiceImpl
 import com.pil.movieApp.domain.service.MovieService
-import com.pil.movieApp.service.MovieServiceImpl
 import org.koin.dsl.module
 
 object ServiceModule {

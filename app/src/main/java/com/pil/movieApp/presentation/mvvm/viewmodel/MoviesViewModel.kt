@@ -4,19 +4,19 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.pil.movieApp.mvvm.contract.MainContract
-import com.pil.movieApp.service.model.Movie
+import com.pil.movieApp.domain.entity.Movie
 import com.pil.movieApp.domain.util.CoroutineResult
+import com.pil.movieApp.presentation.mvvm.model.MoviesModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class MoviesViewModel(private val model: MainContract.Model) : ViewModel(), MainContract.ViewModel {
+class MoviesViewModel(private val model: MoviesModel) : ViewModel() {
 
     private val mutableLiveData: MutableLiveData<MainData> = MutableLiveData()
-    override fun getValue(): LiveData<MainData> = mutableLiveData
+    fun getValue(): LiveData<MainData> = mutableLiveData
 
-    override fun callService() = viewModelScope.launch {
+    fun callService() = viewModelScope.launch {
         withContext(Dispatchers.IO) { model.getMovies() }.let { result ->
             when (result) {
                 is CoroutineResult.Success -> {

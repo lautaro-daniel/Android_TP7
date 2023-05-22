@@ -1,7 +1,6 @@
 package com.pil.movieApp.data.service.api
 
 import com.pil.movieApp.data.service.response.ResultResponse
-import com.pil.movieApp.service.model.MovieList
 import retrofit2.Call
 import retrofit2.http.GET
 

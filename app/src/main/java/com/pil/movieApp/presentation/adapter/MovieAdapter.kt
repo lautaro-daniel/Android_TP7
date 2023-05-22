@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.pil.movieApp.service.model.Movie
+import com.pil.movieApp.domain.entity.Movie
 import com.pil.retrofit_room.R
 import com.pil.retrofit_room.databinding.ItemRecyclerBinding
 
