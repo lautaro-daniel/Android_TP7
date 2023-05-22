@@ -4,7 +4,7 @@ import com.pil.movieApp.database.MovieDataBase
 import com.pil.movieApp.mvvm.contract.MainContract
 import com.pil.movieApp.service.MovieService
 import com.pil.movieApp.service.model.Movie
-import com.pil.movieApp.util.CoroutineResult
+import com.pil.movieApp.domain.util.CoroutineResult
 
 class MainModel(
     private val service: MovieService,

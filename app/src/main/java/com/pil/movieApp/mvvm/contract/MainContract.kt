@@ -1,9 +1,9 @@
 package com.pil.movieApp.mvvm.contract
 
 import androidx.lifecycle.LiveData
-import com.pil.movieApp.mvvm.viewmodel.MainViewModel
+import com.pil.movieApp.presentation.mvvm.viewmodel.MoviesViewModel
 import com.pil.movieApp.service.model.Movie
-import com.pil.movieApp.util.CoroutineResult
+import com.pil.movieApp.domain.util.CoroutineResult
 import kotlinx.coroutines.Job
 
 interface MainContract {
@@ -13,7 +13,7 @@ interface MainContract {
     }
 
     interface ViewModel {
-        fun getValue(): LiveData<MainViewModel.MainData>
+        fun getValue(): LiveData<MoviesViewModel.MainData>
         fun callService(): Job
     }
 }

@@ -1,4 +1,4 @@
-package com.pil.movieApp.util
+package com.pil.movieApp.domain.util
 
 sealed class CoroutineResult<out T : Any> {
     class Success<out T : Any>(val data: T) : CoroutineResult<T>()

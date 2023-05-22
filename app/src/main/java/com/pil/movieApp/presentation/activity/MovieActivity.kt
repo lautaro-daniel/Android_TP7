@@ -11,10 +11,10 @@ import androidx.room.Room
 import com.pil.movieApp.presentation.adapter.MovieAdapter
 import com.pil.movieApp.database.MovieDataBaseImpl
 import com.pil.movieApp.database.MovieRoomDataBase
-import com.pil.movieApp.fragment.ErrorDialogFragment
+import com.pil.movieApp.domain.util.fragment.ErrorDialogFragment
 import com.pil.movieApp.mvvm.contract.MainContract
 import com.pil.movieApp.mvvm.model.MainModel
-import com.pil.movieApp.mvvm.viewmodel.MainViewModel
+import com.pil.movieApp.presentation.mvvm.viewmodel.MoviesViewModel
 import com.pil.movieApp.mvvm.viewmodel.factory.ViewModelFactory
 import com.pil.movieApp.service.MovieClient
 import com.pil.movieApp.service.MovieRequestGenerator
@@ -54,14 +54,14 @@ class MovieActivity : AppCompatActivity() {
                     ),
                 ),
             ),
-        )[MainViewModel::class.java]
+        )[MoviesViewModel::class.java]
 
         viewModel.getValue().observe(this) { updateUI(it) }
     }
 
-    private fun updateUI(data: MainViewModel.MainData) {
+    private fun updateUI(data: MoviesViewModel.MainData) {
         when (data.status) {
-            MainViewModel.MainStatus.SHOW_INFO -> {
+            MoviesViewModel.MainStatus.SHOW_INFO -> {
                 if (data.movies.isEmpty()){
                     binding.emptyState.visibility = RecyclerView.VISIBLE
                 }else {
@@ -69,7 +69,7 @@ class MovieActivity : AppCompatActivity() {
                     binding.recycler.adapter = MovieAdapter(data.movies)
                 }
             }
-            MainViewModel.MainStatus.ERROR -> {
+            MoviesViewModel.MainStatus.ERROR -> {
                 ErrorDialogFragment.newInstance(getString(R.string.error_dialog_title),
                     getString(R.string.message_error_dialog)).show(supportFragmentManager,"errorDialog")
             }

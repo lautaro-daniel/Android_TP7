@@ -1,7 +1,7 @@
 package com.pil.movieApp.service
 
 import com.pil.movieApp.service.model.MovieList
-import com.pil.movieApp.util.CoroutineResult
+import com.pil.movieApp.domain.util.CoroutineResult
 
 interface MovieService {
     suspend fun getMovies(): CoroutineResult<MovieList>

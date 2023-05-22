@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.pil.movieApp.fragment.ErrorDialogFragment
+import com.pil.movieApp.domain.util.fragment.ErrorDialogFragment
 import com.pil.retrofit_room.R
 import com.pil.retrofit_room.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
