@@ -14,8 +14,9 @@ import com.pil.movieApp.presentation.mvvm.viewmodel.MoviesViewModel
 import com.pil.retrofit_room.R
 import com.pil.retrofit_room.databinding.ActivityMainBinding
 import org.koin.android.ext.android.inject
+import org.koin.core.component.KoinComponent
 
-class MovieActivity : AppCompatActivity() {
+class MovieActivity : AppCompatActivity(), KoinComponent {
 
     private lateinit var binding: ActivityMainBinding
     private val viewModel: MoviesViewModel by inject()
@@ -31,12 +32,6 @@ class MovieActivity : AppCompatActivity() {
             finish()
         }
 
-        val dataBase: MovieRoomDataBase by lazy {
-            Room
-                .databaseBuilder(this, MovieRoomDataBase::class.java, "Movie-DataBase")
-                .build()
-        }
-
         viewModel.callService()
         viewModel.getValue().observe(this) { updateUI(it) }
     }
@@ -44,16 +39,12 @@ class MovieActivity : AppCompatActivity() {
     private fun updateUI(data: MoviesViewModel.MainData) {
         when (data.status) {
             MoviesViewModel.MainStatus.SHOW_INFO -> {
-                if (data.movies.isEmpty()){
-                    binding.emptyState.visibility = RecyclerView.VISIBLE
-                }else {
-                    binding.recycler.layoutManager = LinearLayoutManager(this)
-                    binding.recycler.adapter = MovieAdapter(data.movies)
-                }
+                binding.recycler.layoutManager = LinearLayoutManager(this)
+                binding.recycler.adapter = MovieAdapter(data.movies)
+
             }
             MoviesViewModel.MainStatus.ERROR -> {
-                ErrorDialogFragment.newInstance(getString(R.string.error_dialog_title),
-                    getString(R.string.message_error_dialog)).show(supportFragmentManager,"errorDialog")
+                binding.emptyState.visibility = View.VISIBLE
             }
         }
     }
