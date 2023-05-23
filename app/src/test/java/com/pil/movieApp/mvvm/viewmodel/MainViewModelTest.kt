@@ -1,10 +1,10 @@
 package com.pil.movieApp.mvvm.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.pil.movieApp.mvvm.contract.MainContract
+import com.pil.movieApp.domain.entity.Movie
 import com.pil.movieApp.presentation.mvvm.viewmodel.MoviesViewModel
-import com.pil.movieApp.service.model.Movie
 import com.pil.movieApp.domain.util.CoroutineResult
+import com.pil.movieApp.presentation.mvvm.model.MoviesModel
 import io.mockk.*
 import org.junit.Rule
 import org.junit.rules.TestRule
@@ -28,7 +28,7 @@ class MainViewModelTest{
     private lateinit var viewModel: MoviesViewModel
 
     @MockK
-    private lateinit var model: MainContract.Model
+    private lateinit var model: MoviesModel
 
     @MockK
     private lateinit var movieList: List<Movie>
