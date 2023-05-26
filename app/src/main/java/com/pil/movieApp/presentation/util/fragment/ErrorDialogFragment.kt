@@ -1,4 +1,4 @@
-package com.pil.movieApp.domain.util.fragment
+package com.pil.movieApp.presentation.util.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

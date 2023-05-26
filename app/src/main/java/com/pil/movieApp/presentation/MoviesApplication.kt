@@ -6,6 +6,7 @@ import com.pil.movieApp.di.DBModule.dbModule
 import com.pil.movieApp.di.DataBaseModule.dataBaseModule
 import com.pil.movieApp.di.ServiceModule.serviceModule
 import com.pil.movieApp.di.UseCaseModule.useCaseModule
+import com.pil.movieApp.presentation.di.MainViewModelModule.mainViewModelModule
 import com.pil.movieApp.presentation.di.ModelModule.modelModule
 import com.pil.movieApp.presentation.di.ViewModelModule.viewModelModule
 import org.koin.android.ext.koin.androidContext
@@ -22,6 +23,7 @@ class MoviesApplication: Application(), KoinComponent {
 
             modules(
                 listOf(
+                    mainViewModelModule,
                     viewModelModule,
                     serviceModule,
                     modelModule,
